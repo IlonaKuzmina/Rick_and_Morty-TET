@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CharactersResult } from 'src/app/models/character.model';
 import { CharactersService } from 'src/app/services/characters.service';
 
@@ -9,30 +10,30 @@ import { CharactersService } from 'src/app/services/characters.service';
 })
 export class CharactersListComponent implements OnInit {
   characters?: CharactersResult[];
+  charactersSubscription?: Subscription;
   pageNumber: number = 1;
 
   constructor(private charactersService: CharactersService) {}
 
   ngOnInit(): void {
-    this.getDataFrom();
-  }
-
-  getDataFrom(): void {
-    this.charactersService
+    this.charactersSubscription = this.charactersService
       .getCharacters(this.pageNumber)
       .subscribe((response) => {
         const { results } = response;
         this.characters = results;
-        console.log(this.characters);
       });
   }
 
   onScroll(): void {
-    this.pageNumber = this.pageNumber + 1;
-    // this.charactersService.subscribe((response) => {
-    //   const { results } = response;
-    //   this.characters = this.characters?.concat(results);
-    //   console.log(this.characters);
-    // });
+    this.charactersSubscription = this.charactersService
+      .getCharacters(++this.pageNumber)
+      .subscribe((response) => {
+        const { results } = response;
+        this.characters?.push(...results);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.charactersSubscription?.unsubscribe();
   }
 }
