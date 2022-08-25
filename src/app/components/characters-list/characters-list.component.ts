@@ -9,9 +9,9 @@ import { CharactersService } from 'src/app/services/characters.service';
   styleUrls: ['./characters-list.component.scss'],
 })
 export class CharactersListComponent implements OnInit {
-  characters?: CharactersResult[];
+  public characters?: CharactersResult[];
   charactersSubscription?: Subscription;
-  pageNumber: number = 1;
+  private pageNumber: number = 1;
 
   constructor(private charactersService: CharactersService) {}
 
@@ -24,7 +24,7 @@ export class CharactersListComponent implements OnInit {
       });
   }
 
-  onScroll(): void {
+  public onScroll(): void {
     this.charactersSubscription = this.charactersService
       .getCharacters(++this.pageNumber)
       .subscribe((response) => {

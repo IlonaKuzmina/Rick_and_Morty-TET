@@ -7,11 +7,11 @@ import { Characters } from '../models/character.model';
   providedIn: 'root',
 })
 export class CharactersService {
-  baseUrl = 'https://rickandmortyapi.com/api/character/';
+  private baseUrl = 'https://rickandmortyapi.com/api/character/';
 
   constructor(private http: HttpClient) {}
 
-  getCharacters(pageNumber: number): Observable<Characters> {
+  public getCharacters(pageNumber: number): Observable<Characters> {
     return this.http.get(
       `${this.baseUrl}?page=${pageNumber}`
     ) as Observable<Characters>;
