@@ -10,7 +10,7 @@ import { CharactersService } from 'src/app/services/characters.service';
 })
 export class CharactersListComponent implements OnInit {
   public characters?: CharactersResult[];
-  charactersSubscription?: Subscription;
+  private charactersSubscription?: Subscription;
   private pageNumber: number = 1;
 
   constructor(private charactersService: CharactersService) {}
