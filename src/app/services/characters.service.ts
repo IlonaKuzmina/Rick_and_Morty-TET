@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Characters, CharactersResult } from '../models/character.model';
+import { Observable } from 'rxjs';
+import { Characters } from '../models/character.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CharactersService {
   baseUrl = 'https://rickandmortyapi.com/api/character/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getCharacters(pageNumber: number) {
-    return this.http.get<Characters>(
+  getCharacters(pageNumber: number): Observable<Characters> {
+    return this.http.get(
       `${this.baseUrl}?page=${pageNumber}`
-    );
+    ) as Observable<Characters>;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { CharactersResult } from 'src/app/models/character.model';
 import { CharactersService } from 'src/app/services/characters.service';
 
@@ -23,7 +23,16 @@ export class CharactersListComponent implements OnInit {
       .subscribe((response) => {
         const { results } = response;
         this.characters = results;
-        console.log(this.characters)
+        console.log(this.characters);
       });
+  }
+
+  onScroll(): void {
+    this.pageNumber = this.pageNumber + 1;
+    // this.charactersService.subscribe((response) => {
+    //   const { results } = response;
+    //   this.characters = this.characters?.concat(results);
+    //   console.log(this.characters);
+    // });
   }
 }

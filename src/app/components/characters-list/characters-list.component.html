@@ -1,40 +1,13 @@
-<div class="album py-5 bg-light">
+<div class="album py-5 bg-light bg-gradient" (scroll)="onScroll()">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
-      <div class="col">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-5">
+      <div class="col" *ngFor="let character of characters">
         <div class="card shadow-sm">
-          <img class="bd-placeholder-img card-img-top" src="https://picsum.photos/300" alt="bilde"/>
+          <app-character-card [character]="character"></app-character-card>
         </div>
       </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class="bd-placeholder-img card-img-top" src="https://picsum.photos/300" alt="bilde"/>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class="bd-placeholder-img card-img-top" src="https://picsum.photos/300" alt="bilde"/>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class="bd-placeholder-img card-img-top" src="https://picsum.photos/300" alt="bilde"/>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class="bd-placeholder-img card-img-top" src="https://picsum.photos/300" alt="bilde"/>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class="bd-placeholder-img card-img-top" src="https://picsum.photos/300" alt="bilde"/>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class="bd-placeholder-img card-img-top" src="https://picsum.photos/300" alt="bilde"/>
-        </div>
+      <div *ngIf="characters">
+        <button>Loading...</button>
       </div>
     </div>
   </div>

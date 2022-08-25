@@ -1,0 +1,17 @@
+.bg-secondary {
+  --bs-bg-opacity: 0.25;
+  background-color: rgba(
+    var(--bs-secondary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+  &:hover {
+    --bs-bg-opacity: 1;
+  }
+}
+
+.card-img {
+  opacity: 0.8;
+  &:hover {
+    opacity: 1.2;
+  }
+}
