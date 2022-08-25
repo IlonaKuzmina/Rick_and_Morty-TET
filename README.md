@@ -1,6 +1,6 @@
 # RickAndMortyTET
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3 with Bootstrap and Infinite-scroll.
+This project was generated with Angular using Bootstrap and Infinite-scroll.
 
 ### Browser: [LINK](https://rick-and-morty-tet.netlify.app/)
 
