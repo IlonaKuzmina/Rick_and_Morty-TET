@@ -7,10 +7,17 @@ import { CharacterCardComponent } from './components/character-card/character-ca
 import { CharactersListComponent } from './components/characters-list/characters-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, CharacterCardComponent, CharactersListComponent],
-  imports: [BrowserModule, HttpClientModule, NgbModule, InfiniteScrollModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    NgbModule,
+    InfiniteScrollModule,
+    CommonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
